@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguro Dentista - Pessoa Física</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #0056b3;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1;
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .checkbox-group label {
+            flex: 1 0 48%;
+            margin-bottom: 10px;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+        }
+        .important {
+            color: red;
+            font-weight: bold;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #003d82;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1ebe5f;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* Ajustes para impressão em A4 */
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                border: none;
+                box-shadow: none;
+            }
+            .form-row {
+                display: flex;
+                justify-content: space-between;
+            }
+            .form-group {
+                flex: 1;
+                padding: 10px;
+            }
+            .form-group-inline {
+                display: inline-block;
+                width: 48%;
+            }
+            .button-group {
+                display: none;
+            }
+            /* Redimensionar a imagem para caber no A4 */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Seguro Dentista - Pessoa Física</h1>
+    <form id="dentistaForm">
+        <h3>Dados Pessoais</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nomeCompleto">Nome Completo:</label>
+                <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="cro">CRO:</label>
+                <input type="text" id="cro" name="cro" required>
+            </div>
+        </div>
+
+        <!-- Múltiplas escolhas para atividades odontológicas -->
+        <h3>Selecione as atividades abaixo:</h3>
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="atividade" value="Procedimentos Odontológicos"> 
+                Procedimentos Odontológicos (*)
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="Implante Dentário"> 
+                Implante Dentário
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="Cirurgia Bucomaxilofacial"> 
+                Cirurgia Bucomaxilofacial
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="Preenchedores Faciais"> 
+                Preenchedores Faciais
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="Botox"> 
+                Botox
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="Harmonização Orofacial"> 
+                Harmonização Orofacial por Preenchimento
+            </label>
+        </div>
+
+        <div class="note">
+            <p><strong>* Procedimentos Clínicos Aceitos:</strong> Clareamento, Estética Dentária, Facetas, Extração de Siso, Canal, Obturações, Procedimentos Clínicos em Geral.</p>
+            <p class="important">** Atividades não aceitas: Fios de PDO, Bichectomia e Lipo de Papada.</p>
+        </div>
+
+        <h3>Informações de Risco</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="sinistros">Sinistros nos últimos 5 anos:</label>
+                <select id="sinistros" name="sinistros" required>
+                    <option value="">Selecione</option>
+                    <option value="nenhum">Nenhum</option>
+                    <option value="um">Um sinistro</option>
+                    <option value="dois">Dois sinistros</option>
+                    <option value="tres">3 ou mais sinistros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="conhecimentoPrevio">Conhecimento Prévio:</label>
+                <select id="conhecimentoPrevio" name="conhecimentoPrevio" required>
+                    <option value="">Selecione</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+        </div>
+
+        <h3>Informações Gerais</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="importanciaSegurada">Importância Segurada:</label>
+                <select id="importanciaSegurada" name="importanciaSegurada" required>
+                    <option value="">Selecione</option>
+                    <option value="50000">R$ 50.000,00</option>
+                    <option value="75000">R$ 75.000,00</option>
+                    <option value="100000">R$ 100.000,00</option>
+                    <option value="150000">R$ 150.000,00</option>
+                    <option value="200000">R$ 200.000,00</option>
+                    <option value="300000">R$ 300.000,00</option>
+                    <option value="500000">R$ 500.000,00</option>
+                    <option value="1000000">R$ 1.000.000,00</option>
+                    <option value="1500000">R$ 1.500.000,00</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="retroatividade">Retroatividade:</label>
+                <select id="retroatividade" name="retroatividade" required>
+                    <option value="">Selecione</option>
+                    <option value="sem">Sem Retroatividade</option>
+                    <option value="2anos">Até 2 anos</option>
+                    <option value="3anos">Até 3 anos</option>
+                    <option value="5anos">Até 5 anos</option>
+                    <option value="7anos">Até 7 anos</option>
+                    <option value="10anos">Até 10 anos</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Substituição do campo "Início da Vigência" por "Celular" -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="celular">Celular:</label>
+                <input type="tel" id="celular" name="celular" placeholder="(00) 0 0000-0000" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+            </div>
+            <div class="form-group">
+                <label for="uf">UF:</label>
+                <input type="text" id="uf" name="uf" required>
+            </div>
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" required>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="btn" onclick="imprimirPDF()">Imprimir e Gerar PDF</button>
+            <button type="button" class="btn btn-whatsapp" onclick="compartilharWhatsApp()">Compartilhar via WhatsApp</button>
+        </div>
+
+        <!-- Adição da imagem ao final do formulário -->
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="https://media.licdn.com/dms/image/v2/D4D3DAQEzdGLf1KMJnA/image-scale_191_1128/image-scale_191_1128/0/1708349076685/akadseguros_cover?e=2147483647&v=beta&t=zcCGHA68Nhg9LxGe9KLI7GqSoXGTUQB7ELiMOfFEdC0" alt="Akad Seguros" style="max-width: 100%; height: auto;">
+        </div>
+    </form>
+</div>
+
+<script>
+    // Máscaras para CPF, CEP e Celular
+    document.getElementById('cpf').addEventListener('input', function(e) {
+        let x = e.target.value.replace(/\D/g, '');
+        x = x.replace(/(\d{3})(\d)/, '$1.$2');
+        x = x.replace(/(\d{3})(\d)/, '$1.$2');
+        x = x.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        e.target.value = x;
+    });
+
+    document.getElementById('cep').addEventListener('input', function(e) {
+        let x = e.target.value.replace(/\D/g, '');
+        x = x.replace(/^(\d{5})(\d)/, '$1-$2');
+        e.target.value = x;
+    });
+
+    document.getElementById('celular').addEventListener('input', function(e) {
+        let x = e.target.value.replace(/\D/g, '');
+        x = x.replace(/^(\d{2})(\d)/g, '($1) $2');
+        x = x.replace(/(\d{5})(\d)/, '$1-$2');
+        e.target.value = x;
+    });
+
+    // Função para compartilhar via WhatsApp
+    function compartilharWhatsApp() {
+        const form = document.getElementById('dentistaForm');
+        const dados = new FormData(form);
+        let mensagem = 'Dados do Seguro Dentista:\n';
+
+        if (dados.get('nomeCompleto')) mensagem += `Nome Completo: ${dados.get('nomeCompleto')}\n`;
+        if (dados.get('cpf')) mensagem += `CPF: ${dados.get('cpf')}\n`;
+        if (dados.get('email')) mensagem += `E-mail: ${dados.get('email')}\n`;
+        if (dados.get('cro')) mensagem += `CRO: ${dados.get('cro')}\n`;
+        if (dados.get('celular')) mensagem += `Celular: ${dados.get('celular')}\n`;
+
+        // Adicionar atividades odontológicas
+        const atividades = [];
+        document.querySelectorAll('input[name="atividade"]:checked').forEach((el) => {
+            atividades.push(el.value);
+        });
+        if (atividades.length > 0) mensagem += `Atividades: ${atividades.join(', ')}\n`;
+
+        if (dados.get('importanciaSegurada')) mensagem += `Importância Segurada: ${dados.get('importanciaSegurada')}\n`;
+        if (dados.get('retroatividade')) mensagem += `Retroatividade: ${dados.get('retroatividade')}\n`;
+
+        // Redirecionar para o WhatsApp
+        const url = `https://wa.me/556530253530?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+    }
+
+    // Função para imprimir e gerar PDF
+    function imprimirPDF() {
+        window.print();
+    }
+</script>
+
+</body>
+</html>
